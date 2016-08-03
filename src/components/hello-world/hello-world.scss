@@ -12,3 +12,10 @@ p {
   color: teal;
 }
 
+.active {
+  &-true { outline: 1px solid red; }
+}
+
+:host([pressed]) input {
+  background: blue;
+}

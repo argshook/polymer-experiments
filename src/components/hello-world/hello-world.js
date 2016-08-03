@@ -5,6 +5,19 @@ export default {
       type: String,
       value: 'fak'
     },
+    pressed: {
+      type: Boolean,
+      value: false,
+      notify: true,
+      reflectToAttribute: true
+    },
+  },
+  listeners: {
+    'tap': 'toggle'
+  },
+  toggle(...args) {
+    console.log(args);
+    this.pressed = !this.pressed;
   },
   ready: () => console.log('ready'),
   created: () => console.log('created'),
