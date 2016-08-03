@@ -1,5 +1,5 @@
 {
-  "name": "polymer-playground",
+  "name": "polymer-experiments",
   "version": "0.0.1",
   "description": "just playing with polymer using webpack in order to make reusable components for other projects",
   "main": "index.js",
@@ -8,6 +8,10 @@
     "build": "webpack -p"
   },
   "author": "Arijus Šukys <argshook@gmail.com> (http://arijus.net)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/argshook/polymer-experiments.git"
+  },
   "license": "ISC",
   "dependencies": {
     "Polymer": "^1.5.2",
