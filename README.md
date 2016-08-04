@@ -15,5 +15,6 @@ it should hopefully work live here: [http://arijus.net/polymer-experiments](http
 ## Misc
 
 1. `npm run build-polymer`
+
    this creates `src/polymer.js` out of `node_modules/Polymer/polymer.html`. It is imported in `src/index.js`. You shouldn't need this to run manually. It's done after `npm i` and before `npm run build`.
 
