@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
+    "prebuild": "npm run build-polymer",
     "build": "webpack -p",
-    "build-polymer": "./build-polymer.sh"
+    "build-polymer": "./build-polymer.sh",
+    "postinstall": "npm run build-polymer"
   },
   "author": "Arijus Šukys <argshook@gmail.com> (http://arijus.net)",
   "repository": {
