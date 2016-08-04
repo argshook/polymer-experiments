@@ -4,6 +4,8 @@ question: can i make web components with polymer and bundle them to one js file?
 
 answer: this repo! 
 
+it should hopefully work live here: [http://arijus.net/polymer-experiments](http://arijus.net/polymer-experiments)
+
 ## How
 
 1. `npm i`
