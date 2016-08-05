@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Stupid angular example</title>
+</head>
+<body>
+    <angular-component></angular-component>
+
+    <script src="bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+
+    <script>
+        angular
+            .module('app', [])
+            .component('angularComponent', {
+                template: '<div>Hello <pr-clock>This is clock:</pr-clock></div>'
+            });
+    </script>
+</body>
+</html>
