@@ -23,8 +23,17 @@ it should hopefully work live here: [http://arijus.net/polymer-experiments](http
     };
     ```
     > Note: if you do this, do it *before* adding `bundle.min.js`!
-    
+
     need to check if [react-integration](https://github.com/webcomponents/react-integration) could help without too much overhead
+
+2. super simple Angular 1.5 example [angular.html](angular.html)
+
+these examples are currently pretty stupid. Need to test:
+
+1. polymer integration with multiple nested polymer components;
+1. passing values (via attributes/props) to polymer components;
+1. receiving events from polymer and correctly passing them to angular/react/somethingelse;
+1. nesting angular/react components inside polymer?
 
 ## Misc
 
