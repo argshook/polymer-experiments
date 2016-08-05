@@ -16,13 +16,14 @@ it should hopefully work live here: [http://arijus.net/polymer-experiments](http
 
 1. super simple React example [react.html](react.html)
 
-    note this requires to use real shadow dom:
+    this requires to use real shadow dom:
     ```js
     window.Polymer = {
         dom: 'shadow'
     };
     ```
-
+    > Note: if you do this, do it *before* adding `bundle.min.js`!
+    
     need to check if [react-integration](https://github.com/webcomponents/react-integration) could help without too much overhead
 
 ## Misc
