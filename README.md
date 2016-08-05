@@ -30,10 +30,10 @@ it should hopefully work live here: [http://arijus.net/polymer-experiments](http
 
 these examples are currently pretty stupid. Need to test:
 
-1. polymer integration with multiple nested polymer components;
-1. passing values (via attributes/props) to polymer components;
-1. receiving events from polymer and correctly passing them to angular/react/somethingelse;
-1. nesting angular/react components inside polymer?
+1. [ ] polymer integration with multiple nested polymer components;
+1. [ ] passing values (via attributes/props) to polymer components;
+1. [ ] receiving events from polymer and correctly passing them to angular/react/somethingelse;
+1. [ ] nesting angular/react components inside polymer?
 
 ## Misc
 
