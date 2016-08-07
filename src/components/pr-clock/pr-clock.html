@@ -4,8 +4,8 @@
       <content></content>
     </div>
 
-    <div class="time">
-      [[getTimeString(time)]]
+    <div class="time" on-tap="handleClick">
+      [[getTimeString(time, format)]]
     </div>
   </template>
 </dom-module>

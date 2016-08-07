@@ -13,8 +13,39 @@
     <script>
         angular
             .module('app', [])
+            .directive('ngOn', function($parse) {
+              // { eventName: fn }
+              return {
+                restrict: 'A',
+                compile: function($element, attr) {
+                  var ngOn = $parse(attr.ngOn);
+
+                  return function(scope, element) {
+                    var eventsAndCallbacks = ngOn(scope);
+
+                    Object.keys(eventsAndCallbacks).forEach(function(eventName) {
+                      element.on(eventName, function(event) {
+                        scope.$evalAsync(function() {
+                          eventsAndCallbacks[eventName](event);
+                        });
+                      });
+                    });
+                  };
+                }
+              };
+            })
             .component('angularComponent', {
-                template: '<div>Hello <pr-clock>This is clock:</pr-clock></div>'
+                template: '<div>Change format from angular:<br><input type="radio" ng-model="$ctrl.format" value="12h" />12H<br><input type="radio" ng-model="$ctrl.format" value="24h" />24H <pr-clock ng-on="{ \'format-changed\': $ctrl.formatChange, \'custom-polymer-event\': $ctrl.customEvent }" format="{{$ctrl.format}}">This is clock:</pr-clock></div>',
+                controller: function() {
+                  this.format = '24h';
+                  this.toggleFormat = () => {
+                    this.format = this.format === '24h' ? '12h' : '24h';
+                  };
+
+                  this.formatChange = event => console.log('event from polymer!', event);
+
+                  this.customEvent = event => console.log('custom event!', event);
+                }
             });
     </script>
 </body>
