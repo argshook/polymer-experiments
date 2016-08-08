@@ -9,31 +9,11 @@
 
     <script src="bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="https://rawgit.com/argshook/ng-on/master/src/ng-on.js"></script>
 
     <script>
         angular
-            .module('app', [])
-            .directive('ngOn', function($parse) {
-              // { eventName: fn }
-              return {
-                restrict: 'A',
-                compile: function($element, attr) {
-                  var ngOn = $parse(attr.ngOn);
-
-                  return function(scope, element) {
-                    var eventsAndCallbacks = ngOn(scope);
-
-                    Object.keys(eventsAndCallbacks).forEach(function(eventName) {
-                      element.on(eventName, function(event) {
-                        scope.$evalAsync(function() {
-                          eventsAndCallbacks[eventName](event);
-                        });
-                      });
-                    });
-                  };
-                }
-              };
-            })
+            .module('app', ['argshook.ngOn'])
             .component('angularComponent', {
                 templateUrl: 'clock-template',
                 controller: function() {
