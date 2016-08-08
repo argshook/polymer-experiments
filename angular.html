@@ -35,18 +35,39 @@
               };
             })
             .component('angularComponent', {
-                template: '<div>Change format from angular:<br><input type="radio" ng-model="$ctrl.format" value="12h" />12H<br><input type="radio" ng-model="$ctrl.format" value="24h" />24H <pr-clock ng-on="{ \'format-changed\': $ctrl.formatChange, \'custom-polymer-event\': $ctrl.customEvent }" format="{{$ctrl.format}}">This is clock:</pr-clock></div>',
+                templateUrl: 'clock-template',
                 controller: function() {
                   this.format = '24h';
                   this.toggleFormat = () => {
                     this.format = this.format === '24h' ? '12h' : '24h';
                   };
 
-                  this.formatChange = event => console.log('event from polymer!', event);
+                  this.events = {
+                    'format-changed': e => logEvent(e),
+                    'custom-polymer-event': e => logEvent(e),
+                    click: e => logEvent(e)
+                  }
 
-                  this.customEvent = event => console.log('custom event!', event);
+                  function logEvent(e) {
+                    console.dir(e.type, e.details);
+                  }
                 }
             });
+    </script>
+    <script id="clock-template" type="text/ng-template">
+      <div>
+        Change format from angular:
+        <br>
+
+        <input type="radio" ng-model="$ctrl.format" value="12h" /> 12H
+        <br>
+
+        <input type="radio" ng-model="$ctrl.format" value="24h" /> 24H
+
+        <pr-clock ng-on="$ctrl.events" format="{{$ctrl.format}}">
+          This is clock:
+        </pr-clock>
+      </div>
     </script>
 </body>
 </html>
