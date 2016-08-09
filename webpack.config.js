@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 
-module.exports = {
+const config = {
   entry: {
     bundle: path.resolve(__dirname, 'src', 'index.js')
   },
@@ -39,8 +39,10 @@ module.exports = {
         }
       }
     ]
-  },
+  }
+};
 
+const devConfig = {
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
@@ -53,4 +55,14 @@ module.exports = {
     }
   }
 };
+
+function makeConfig(options) {
+  if(process.env.NODE_ENV !== 'prod') {
+    return require('deep-assign')({}, options, devConfig);
+  }
+
+  return options;
+}
+
+module.exports = makeConfig(config);
 
