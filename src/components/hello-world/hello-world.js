@@ -3,7 +3,7 @@ export default {
   properties: {
     name: {
       type: String,
-      value: 'fak'
+      value: 'Name'
     },
     pressed: {
       type: Boolean,
@@ -16,7 +16,6 @@ export default {
     'tap': 'toggle'
   },
   toggle(...args) {
-    console.log(args);
     this.pressed = !this.pressed;
   },
   ready: () => console.log('ready'),

@@ -4,18 +4,7 @@ p {
   color: $color;
 }
 
-.shit {
-  color: brown;
-}
-
-.fak {
-  color: teal;
-}
-
 .active {
   &-true { outline: 1px solid red; }
 }
 
-:host([pressed]) input {
-  background: blue;
-}
