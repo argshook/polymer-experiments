@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Stupid react example</title>
-</head>
-<body>
-  <div id="app"></div>
-
+  <script src="src/bower_components/webcomponentsjs/webcomponents.min.js"></script>
   <script>
     window.Polymer = {
       dom: 'shadow'
     };
   </script>
+  <link rel="import" href="src/bower_components/polymer/polymer.html">
+</head>
+<body>
+  <div id="app"></div>
+
   <script src="bundle.min.js"></script>
 
   <script src="https://fb.me/react-15.3.0.js"></script>

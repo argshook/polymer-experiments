@@ -5,10 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "prebuild": "npm run build-polymer",
-    "build": "webpack -p",
-    "build-polymer": "./build-polymer.sh",
-    "postinstall": "npm run build-polymer"
+    "build": "webpack -p"
   },
   "author": "Arijus Šukys <argshook@gmail.com> (http://arijus.net)",
   "repository": {
@@ -16,10 +13,6 @@
     "url": "https://github.com/argshook/polymer-experiments.git"
   },
   "license": "ISC",
-  "dependencies": {
-    "Polymer": "^1.5.2",
-    "webcomponents.js": "^0.7.22"
-  },
   "devDependencies": {
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
