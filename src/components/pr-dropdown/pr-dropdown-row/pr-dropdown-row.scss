@@ -1,0 +1,21 @@
+:host {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 0 100%;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transition: .1s ease all;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+  }
+
+  &:hover {
+    background: fade-out(blue, .7);
+  }
+}
+

@@ -57,7 +57,7 @@ const devConfig = {
 };
 
 function makeConfig(options) {
-  if(process.env.NODE_ENV !== 'prod') {
+  if (process.env.NODE_ENV !== 'prod') {
     return require('deep-assign')({}, options, devConfig);
   }
 
