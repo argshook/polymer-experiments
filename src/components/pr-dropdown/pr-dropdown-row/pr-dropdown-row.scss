@@ -6,14 +6,13 @@
   background: #fff;
   transition: .1s ease all;
   cursor: pointer;
-
-  &:not(:last-child) {
-    border-bottom: 1px solid #ccc;
-  }
-
-  &:hover,
-  &[selected] {
-    background: fade-out(blue, .7);
-  }
 }
 
+:host:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+
+:host(:hover),
+:host([selected]) {
+  background: fade-out(blue, .7);
+}

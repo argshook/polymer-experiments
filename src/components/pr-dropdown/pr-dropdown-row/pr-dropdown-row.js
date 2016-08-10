@@ -21,7 +21,7 @@ export default {
     });
   },
 
-  ready() {
+  attached() {
     const parent = Polymer.dom(this).parentNode;
     parent.addEventListener('dropdown-value-changed', ({ detail }) => {
       this.selected = this.value === detail.value;

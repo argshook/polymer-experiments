@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Stupid angular example</title>
     <script src="src/bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <script>window.Polymer = { dom: 'shadow' };</script>
     <link rel="import" href="src/bower_components/polymer/polymer.html">
     <link rel="import" href="src/bower_components/patch-dom/index.html">
 </head>
@@ -22,14 +23,14 @@
                 templateUrl: 'clock-template',
                 controller: function() {
                   this.format = '24h';
-                  this.toggleFormat = () => {
+                  this.toggleFormat = function() {
                     this.format = this.format === '24h' ? '12h' : '24h';
                   };
 
                   this.events = {
-                    'format-changed': e => logEvent(e),
-                    'custom-polymer-event': e => logEvent(e),
-                    click: e => logEvent(e)
+                    'format-changed': function(e) { logEvent(e) },
+                    'custom-polymer-event': function(e) { logEvent(e) },
+                    click: function(e) { logEvent(e) }
                   }
 
                   function logEvent(e) {
