@@ -1,7 +1,14 @@
 <dom-module id="pr-slider">
   <template>
-    <div id="bar" on-tap="handleTap">
-      <div id="pin" on-track="handleTrack"></div>
+    <div
+      id="bar"
+      on-tap="handleTap"
+      style="background-position: {{position}}px 0">
+      <div
+        id="pin"
+        on-track="handleTrack"
+        style="left: {{position}}px">
+      </div>
     </div>
   </template>
 </dom-module>

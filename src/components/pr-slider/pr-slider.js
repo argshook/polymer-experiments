@@ -31,23 +31,22 @@ export default {
         return Polymer.dom(this.$.bar).classList.add('tracking');
 
       case 'track':
-        return this.updateValue();
+        return this.updateValue(event.detail.x);
 
       case 'end':
         return Polymer.dom(this.$.bar).classList.remove('tracking');
     }
   },
 
-  handleTap() {
-    this.updateValue();
+  handleTap(event) {
+    this.updateValue(event.detail.x);
   },
 
-  updateValue() {
-    const newPosition = this.getRelativePosition(event.detail.x);
+  updateValue(pos) {
+    const newPosition = this.getRelativePosition(pos);
 
-    this.customStyle['--pin-position-x'] = `${newPosition}px`;
     this.value = this.convertPositionToValue(newPosition);
-    this.updateStyles();
+    this.position = newPosition;
   },
 
   getRelativePosition(pos) {

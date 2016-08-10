@@ -4,6 +4,7 @@
   justify-content: center;
   width: 300px;
   height: 20px;
+  user-select: none;
 }
 
 #bar {
@@ -11,22 +12,25 @@
   align-items: center;
   justify-content: flex-start;
   width: 90%;
-  height: 5px;
-  background: #ccc;
+  height: 7px;
+  background-image: linear-gradient(90deg, #ccc 50%, #aaa 50%);
+  background-size: 200%;
 
   #pin:hover,
   &.tracking #pin {
-    transform: translateX(var(--pin-position-x)) scale(1.2);
+    transform: scale(1.2);
   }
 }
 
 #pin {
+  position: relative;
   display: block;
   width: 16px;
   height: 16px;
   background: #888;
   border-radius: 50%;
-  transform: translateX(var(--pin-position-x)) scale(1);
+  transform: scale(1);
+  transition: .2s ease transform;
   cursor: pointer;
 }
 
