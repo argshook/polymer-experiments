@@ -9,7 +9,8 @@ const config = {
   output: {
     path: path.resolve(__dirname),
     filename: '[name].min.js',
-    publicPath: '/'
+    publicPath: '/',
+    sourceMapFilename: '[file].map'
   },
 
   module: {
@@ -46,6 +47,8 @@ const devConfig = {
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
+
+  devtool: 'source-map',
 
   devServer: {
     inline: true,

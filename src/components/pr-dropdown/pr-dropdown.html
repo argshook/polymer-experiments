@@ -1,10 +1,14 @@
 <dom-module id="pr-dropdown">
   <template>
-    <div>{{label}}</div>
+    <div class="mask" on-tap="_onMaskTap" hidden$="{{!opened}}"></div>
 
-    <pr-dropdown-list hidden$="{{!open}}">
+    <div class="label" on-tap="_onLabelTap">
+      {{label}}
+    </div>
+
+    <div class="list" hidden$="{{!opened}}">
       <content></content>
-    </pr-dropdown-list>
+    </div>
   </template>
 </dom-module>
 
