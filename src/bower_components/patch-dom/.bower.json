@@ -1,0 +1,13 @@
+{
+  "name": "patch-dom",
+  "_cacheHeaders": {
+    "ETag": "\"eb78eedc4f0d9c2402cd422372da173249d8099c\"",
+    "Content-Length": "2372",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:eb78eedc4",
+  "main": "index.html",
+  "_source": "https://raw.githubusercontent.com/PolymerLabs/polymer-experiments/master/patch-dom.html",
+  "_target": "*",
+  "_originalSource": "https://raw.githubusercontent.com/PolymerLabs/polymer-experiments/master/patch-dom.html"
+}

@@ -12,5 +12,7 @@ const COMPONENTS = [
   prDropdownRow
 ];
 
-COMPONENTS.forEach(c => Polymer(c));
+HTMLImports.whenReady(() => {
+  COMPONENTS.forEach(c => Polymer(c));
+});
 

@@ -6,7 +6,8 @@ export default {
     },
     selected: {
       type: Boolean,
-      value: false
+      value: false,
+      reflectToAttribute: true
     }
   },
 
@@ -16,8 +17,14 @@ export default {
 
   _onTap() {
     this.fire('row-click', {
-      label: this.innerText,
       value: this.value
+    });
+  },
+
+  ready() {
+    const parent = Polymer.dom(this).parentNode;
+    parent.addEventListener('dropdown-value-changed', ({ detail }) => {
+      this.selected = this.value === detail.value;
     });
   }
 };

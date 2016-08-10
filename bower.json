@@ -13,6 +13,7 @@
   ],
   "dependencies": {
     "webcomponentsjs": "^0.7.22",
-    "polymer": "^1.6.1"
+    "polymer": "^1.6.1",
+    "patch-dom": "https://raw.githubusercontent.com/PolymerLabs/polymer-experiments/master/patch-dom.html"
   }
 }

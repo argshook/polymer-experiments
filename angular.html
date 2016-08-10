@@ -5,9 +5,11 @@
     <title>Stupid angular example</title>
     <script src="src/bower_components/webcomponentsjs/webcomponents.min.js"></script>
     <link rel="import" href="src/bower_components/polymer/polymer.html">
+    <link rel="import" href="src/bower_components/patch-dom/index.html">
 </head>
 <body>
     <angular-component></angular-component>
+    <dropdown-component></dropdown-component>
 
     <script src="bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
@@ -34,6 +36,17 @@
                     console.dir(e.type, e.details);
                   }
                 }
+            })
+
+            .component('dropdownComponent', {
+              templateUrl: 'dropdown-template',
+              controller: function() {
+                this.items = [
+                  { value: 1, label: 'first' },
+                  { value: 2, label: 'second' },
+                  { value: 3, label: 'third' }
+                ];
+              }
             });
     </script>
     <script id="clock-template" type="text/ng-template">
@@ -49,6 +62,15 @@
         <pr-clock ng-on="$ctrl.events" format="{{$ctrl.format}}">
           This is clock:
         </pr-clock>
+      </div>
+    </script>
+    <script id="dropdown-template" type="text/ng-template">
+      <div>
+        <pr-dropdown label="Some items:">
+          <pr-dropdown-row ng-repeat="item in $ctrl.items track by $index" value="{{item.value}}">
+            {{item.label}}
+          </pr-dropdown-row>
+        </pr-dropdown>
       </div>
     </script>
 </body>

@@ -30,9 +30,10 @@ export default {
   },
 
   _onRowClick(event) {
-    const { value, label } = event.detail;
-    this.label = label;
-    this.value = value;
+    this.label = event.target.innerText;
+    this.value = event.detail.value;
+
+    this.fire('dropdown-value-changed', { value: this.value });
     this.close();
   },
 
