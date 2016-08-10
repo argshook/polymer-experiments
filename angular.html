@@ -11,6 +11,7 @@
 <body>
     <angular-component></angular-component>
     <dropdown-component></dropdown-component>
+    <slider-component></slider-component>
 
     <script src="bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
@@ -48,6 +49,17 @@
                   { value: 3, label: 'third' }
                 ];
               }
+            })
+
+            .component('sliderComponent', {
+              templateUrl: 'slider-template',
+              controller: function() {
+                this.value = 0;
+
+                this.handleChange = function({ detail }) {
+                  this.value = detail.value;
+                }.bind(this);
+              }
             });
     </script>
     <script id="clock-template" type="text/ng-template">
@@ -72,6 +84,13 @@
             {{item.label}}
           </pr-dropdown-row>
         </pr-dropdown>
+      </div>
+    </script>
+
+    <script id="slider-template" type="text/ng-template">
+      <div>
+        <pr-slider ng-on="{ 'value-changed': $ctrl.handleChange }"></pr-slider>
+        <strong>{{$ctrl.value}}</strong>
       </div>
     </script>
 </body>
