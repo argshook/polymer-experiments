@@ -2,7 +2,7 @@
 
 question: can i make web components with polymer and bundle them to one js file?
 
-answer: this repo! 
+answer: this repo!
 
 it should hopefully work live here: [http://arijus.net/polymer-experiments](http://arijus.net/polymer-experiments)
 
@@ -12,32 +12,37 @@ it should hopefully work live here: [http://arijus.net/polymer-experiments](http
 1. `npm start` - for dev [localhost:8080](http://localhost:8080)
 1. `npm run build` - for prod, creates `bundle.min.js`
 
-## Usage
+## Examples
 
-1. super simple React example [react.html](react.html)
+### Vanilla
 
-    this requires to use real shadow dom:
-    ```js
-    window.Polymer = {
-        dom: 'shadow'
-    };
-    ```
-    > Note: if you do this, do it *before* adding `bundle.min.js`!
+[index.html](index.html)
 
-    need to check if [react-integration](https://github.com/webcomponents/react-integration) could help without too much overhead
+no framework, just components
 
-2. super simple Angular 1.5 example [angular.html](angular.html)
+### React
 
-these examples are currently pretty stupid. Need to test:
+[react.html](react.html)
 
-1. [ ] polymer integration with multiple nested polymer components;
-1. [ ] passing values (via attributes/props) to polymer components;
-1. [ ] receiving events from polymer and correctly passing them to angular/react/somethingelse;
-1. [ ] nesting angular/react components inside polymer?
+#### TODO
 
-## Misc
+* [ ] integration with multiple nested components;
+* [ ] passing values via props to components;
+* [ ] handling component events;
+* [ ] styling (with `className`, `style`)
+* [ ] try [react-integration](https://github.com/webcomponents/react-integration)
 
-1. `npm run build-polymer`
+### Angular
 
-   this creates `src/polymer.js` out of `node_modules/Polymer/polymer.html`. It is imported in `src/index.js`. You shouldn't need this to run manually. It's done after `npm i` and before `npm run build`.
+[angular.html](angular.html)
+
+#### TODO
+
+* [ ] integration with multiple nested components;
+* [ * ] handling component events;
+* [ ] styling (with `ng-style`, `ng-class`)
+
+# TODO
+
+* [ ] autoprefixer
 
