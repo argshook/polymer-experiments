@@ -2,6 +2,7 @@
 <html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stupid angular example</title>
     <script src="src/bower_components/webcomponentsjs/webcomponents.min.js"></script>
     <script>window.Polymer = { dom: 'shadow' };</script>
@@ -43,6 +44,16 @@
             .component('dropdownComponent', {
               templateUrl: 'dropdown-template',
               controller: function() {
+                this.selectedValue = 'nothing yet';
+
+                this.dropdownEvents = {
+                    'value-changed': function(event) {
+                        this.selectedValue = this.items.find(function(i) {
+                            return i.value == event.detail.value;
+                        });
+                    }.bind(this)
+                };
+
                 this.items = [
                   { value: 1, label: 'first' },
                   { value: 2, label: 'second' },
@@ -79,17 +90,18 @@
     </script>
     <script id="dropdown-template" type="text/ng-template">
       <div>
-        <pr-dropdown label="Some items:">
+        <pr-dropdown label="Some items:" ng-on="$ctrl.dropdownEvents">
           <pr-dropdown-row ng-repeat="item in $ctrl.items track by $index" value="{{item.value}}">
             {{item.label}}
           </pr-dropdown-row>
         </pr-dropdown>
+        Selected: {{$ctrl.selectedValue}}
       </div>
     </script>
 
     <script id="slider-template" type="text/ng-template">
       <div>
-        <pr-slider ng-on="{ 'value-changed': $ctrl.handleChange }"></pr-slider>
+        <pr-slider ng-on="{ 'value-changed': $ctrl.handleChange }" style="margin: 20px; width: 300px;"></pr-slider>
         <strong>{{$ctrl.value}}</strong>
       </div>
     </script>
