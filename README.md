@@ -39,7 +39,7 @@ no framework, just components
 #### TODO
 
 * [ ] integration with multiple nested components;
-* [ * ] handling component events;
+* [x] handling component events;
 * [ ] styling (with `ng-style`, `ng-class`)
 
 # TODO
