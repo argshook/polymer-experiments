@@ -23,9 +23,12 @@ $pin-color: var(--pr-slider-pin-color, #888);
   background-image: linear-gradient(90deg, $bar-bg 50%, $bar-bg--darken 50%);
   background-size: 200%;
 
+  @apply(--pr-slider-bar-theme);
+
   #pin:hover,
   &.tracking #pin {
-    transform: scale(1.2);
+    transform: translateX(-50%) scale(1.2);
+    @apply(--pr-slider-pin-active-theme);
   }
 }
 
@@ -34,11 +37,12 @@ $pin-color: var(--pr-slider-pin-color, #888);
   display: block;
   width: $pin-size;
   height: $pin-size;
-  margin-left: - $pin-size / 2;
   background: $pin-color;
   border-radius: 50%;
-  transform: scale(1);
+  transform: translateX(-50%) scale(1);
   transition: .2s ease transform;
   cursor: pointer;
+
+  @apply(--pr-slider-pin-theme);
 }
 

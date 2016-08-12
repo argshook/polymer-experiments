@@ -11,16 +11,48 @@
     --pr-slider-bar-height: 10px;
     --pr-slider-bar-background-darken: teal;
     --pr-slider-bar-background: #bada55;
-    --pr-slider-pin-size: 32px;
+    --pr-slider-pin-size: 20px;
     --pr-slider-pin-color: teal;
+
+    --pr-slider-bar-theme: {
+      margin: 11px 0;
+    }
+
+
+    --pr-slider-pin-theme: {
+      border-radius: 30%;
+    }
+
+    --pr-slider-pin-active-theme: {
+      background-color: forestgreen;
+    }
+  }
+  </style>
+  <style>
+  .slider {
+    width: 100px;
+    margin: 0 20px;
   }
   </style>
 </head>
 <body>
+  Hey, slider!
+
   <pr-slider></pr-slider>
 
   <hr>
-  
+
+  More sliders with .slider class!
+  <br>
+
+  <pr-slider class="slider"></pr-slider>
+  <pr-slider class="slider"></pr-slider>
+  <pr-slider class="slider"></pr-slider>
+  <pr-slider class="slider"></pr-slider>
+
+  <hr>
+
+
   <pr-dropdown>
     <pr-dropdown-row value="1">Row 1</pr-dropdown-row>
     <pr-dropdown-row value="2">Row 2</pr-dropdown-row>
