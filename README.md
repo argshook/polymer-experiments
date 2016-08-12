@@ -44,5 +44,5 @@ no framework, just components
 
 # TODO
 
-* [ ] autoprefixer
+* [x] autoprefixer
 

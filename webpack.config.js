@@ -22,7 +22,7 @@ const config = {
       },
       {
         test: /\.s?css$/,
-        loaders: ['css', 'sass']
+        loaders: ['css', 'postcss', 'sass']
       },
       {
         test: /\.html$/,
@@ -40,6 +40,10 @@ const config = {
         }
       }
     ]
+  },
+
+  postcss: function() {
+    return [require('autoprefixer')];
   }
 };
 
