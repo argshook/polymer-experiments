@@ -1,9 +1,16 @@
+$bar-height: var(--pr-slider-bar-height, 7px);
+$bar-bg: var(--pr-slider-bar-background, #ccc);
+$bar-bg--darken: var(--pr-slider-bar-background-darken, #aaa);
+
+$pin-size: var(--pr-slider-pin-size, 16px);
+$pin-color: var(--pr-slider-pin-color, #888);
+
 :host {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 300px;
-  height: 20px;
+  width: 100%;
+  height: 100%;
   user-select: none;
 }
 
@@ -11,9 +18,9 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 90%;
-  height: 7px;
-  background-image: linear-gradient(90deg, #ccc 50%, #aaa 50%);
+  width: 100%;
+  height: $bar-height;
+  background-image: linear-gradient(90deg, $bar-bg 50%, $bar-bg--darken 50%);
   background-size: 200%;
 
   #pin:hover,
@@ -25,10 +32,10 @@
 #pin {
   position: relative;
   display: block;
-  width: 16px;
-  height: 16px;
-  margin-left: -8px;
-  background: #888;
+  width: $pin-size;
+  height: $pin-size;
+  margin-left: - $pin-size / 2;
+  background: $pin-color;
   border-radius: 50%;
   transform: scale(1);
   transition: .2s ease transform;
