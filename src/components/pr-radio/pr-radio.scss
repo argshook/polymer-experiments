@@ -1,0 +1,29 @@
+$border-color: #ccc;
+$checked-border-color: darken(#ccc, 20%);
+
+:host {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.radio {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid $border-color;
+  vertical-align: middle;
+  box-shadow: 0 0 0 0 #fff inset;
+  transition: .2s ease all;
+
+  &[checked] {
+    border-color: $checked-border-color;
+    box-shadow: 0 0 0 4px #fff inset, 0 0 0 999px $checked-border-color inset;
+  }
+}
+
+.label {
+  display: inline-block;
+  vertical-align: middle;
+}
+
