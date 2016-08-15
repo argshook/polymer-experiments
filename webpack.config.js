@@ -1,10 +1,10 @@
 const webpack = require('webpack');
 const path = require('path');
+const deepAssign = require('deep-assign');
 
 const config = {
   entry: {
-    bundle: path.resolve(__dirname, 'src', 'index.js'),
-    'html-imports': path.resolve(__dirname, 'vendor', 'html-imports.vulcanized.js')
+    bundle: path.resolve(__dirname, 'src', 'index.js')
   },
 
   output: {
@@ -19,7 +19,7 @@ const config = {
       {
         test: /\.js$/,
         exclude: ['node_modules'],
-        loader: 'babel?presets=es2015'
+        loader: 'babel?presets=es2015&compact=false'
       },
       {
         test: /\.s?css$/,
@@ -53,7 +53,7 @@ const devConfig = {
     new webpack.HotModuleReplacementPlugin()
   ],
 
-  devtool: 'source-map',
+  devtool: 'eval-source-map',
 
   devServer: {
     inline: true,
@@ -64,12 +64,26 @@ const devConfig = {
   }
 };
 
-function makeConfig(options) {
-  if (process.env.NODE_ENV !== 'prod') {
-    return require('deep-assign')({}, options, devConfig);
-  }
+const prodConfig = {
+  entry: {
+    'html-imports': path.resolve(__dirname, 'vendor', 'html-imports.vulcanized.js')
+  },
 
-  return options;
+  plugins: (config.plugins || []).concat([
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.DedupePlugin()
+  ])
+};
+
+function makeConfig(options) {
+  switch (process.env.NODE_ENV) {
+    case 'dev':
+    default:
+      return deepAssign({}, options, devConfig);
+
+    case 'prod':
+      return deepAssign({}, options, prodConfig);
+  }
 }
 
 module.exports = makeConfig(config);
