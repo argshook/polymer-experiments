@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "NODE_ENV=prod webpack -p"
+    "build": "vulcanize src/html-imports.html --inline-script | crisper --html vendor/html-imports.vulcanized.html --js vendor/html-imports.vulcanized.js && NODE_ENV=prod webpack -p"
   },
   "author": "Arijus Šukys <argshook@gmail.com> (http://arijus.net)",
   "repository": {
@@ -19,6 +19,7 @@
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "bower": "^1.7.9",
+    "crisper": "^2.0.2",
     "css-loader": "^0.23.1",
     "deep-assign": "^2.0.0",
     "html-loader": "^0.4.3",

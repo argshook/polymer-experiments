@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stupid angular example</title>
-    <script src="src/bower_components/webcomponentsjs/webcomponents.min.js"></script>
-    <script>window.Polymer = { dom: 'shadow' };</script>
-    <link rel="import" href="src/bower_components/polymer/polymer.html">
-    <link rel="import" href="src/bower_components/patch-dom/index.html">
 </head>
 <body>
     <angular-component></angular-component>
     <dropdown-component></dropdown-component>
     <slider-component></slider-component>
 
-    <script src="bundle.min.js"></script>
+    <script src="vendor/webcomponents.min.js"></script>
+    <script>window.Polymer = { dom: 'shadow' };</script>
+    <script src="dist/html-imports.js"></script>
+    <script src="dist/bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
     <script src="https://rawgit.com/argshook/ng-on/master/src/ng-on.js"></script>
 
@@ -73,6 +72,7 @@
               }
             });
     </script>
+
     <script id="clock-template" type="text/ng-template">
       <div>
         Change format from angular:
@@ -88,6 +88,7 @@
         </pr-clock>
       </div>
     </script>
+
     <script id="dropdown-template" type="text/ng-template">
       <div>
         <pr-dropdown label="Some items:" ng-on="$ctrl.dropdownEvents">

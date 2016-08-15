@@ -3,12 +3,13 @@ const path = require('path');
 
 const config = {
   entry: {
-    bundle: path.resolve(__dirname, 'src', 'index.js')
+    bundle: path.resolve(__dirname, 'src', 'index.js'),
+    'html-imports': path.resolve(__dirname, 'vendor', 'html-imports.vulcanized.js')
   },
 
   output: {
-    path: path.resolve(__dirname),
-    filename: '[name].min.js',
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
     publicPath: '/',
     sourceMapFilename: '[file].map'
   },
