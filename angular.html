@@ -9,6 +9,7 @@
     <angular-component></angular-component>
     <dropdown-component></dropdown-component>
     <slider-component></slider-component>
+    <radio-group></radio-group>
 
     <script src="vendor/webcomponents.min.js"></script>
     <script>window.Polymer = { dom: 'shadow' };</script>
@@ -70,7 +71,33 @@
                   this.value = detail.value;
                 };
               }
+            })
+            .component('radioGroup', {
+              templateUrl: 'radio-group-template',
+              controller: function() {
+                this.selected = 'second';
+
+                this.options = [
+                  { value: 'first', label: 'First option!' },
+                  { value: 'second', label: 'second option!' },
+                  { value: 'third', label: 'third option!' }
+                ];
+
+                this.selectedChanged = function(event) {
+                  this.selected = event.detail.value;
+                };
+              }
             });
+    </script>
+
+    <script id="radio-group-template" type="text/ng-template">
+      <div>
+        Selected value in angular: {{$ctrl.selected}}
+        <br>
+        <pr-radio-group selected="second" ng-on="{ 'selected-changed': $ctrl.selectedChanged }">
+          <pr-radio ng-repeat="option in $ctrl.options" value="{{option.value}}">{{option.label}}</pr-radio>
+        </pr-radio-group>
+      </div>
     </script>
 
     <script id="clock-template" type="text/ng-template">

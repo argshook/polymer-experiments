@@ -27,7 +27,7 @@ export default {
     }
   },
 
-  ready() {
+  attached() {
     Polymer
       .dom(this)
       .querySelector(`[value=${this.selected}]`)
