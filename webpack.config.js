@@ -10,7 +10,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
-    publicPath: '/',
+    publicPath: '/dist',
     sourceMapFilename: '[file].map'
   },
 
@@ -49,11 +49,11 @@ const config = {
 };
 
 const devConfig = {
-  plugins: [
+  plugins: (config.plugins || []).concat([
     new webpack.HotModuleReplacementPlugin()
-  ],
+  ]),
 
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
 
   devServer: {
     inline: true,
