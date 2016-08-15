@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "vulcanize src/html-imports.html --inline-script | crisper --html vendor/html-imports.vulcanized.html --js vendor/html-imports.vulcanized.js && NODE_ENV=prod webpack -p"
+    "build": "npm run compile-imports && NODE_ENV=prod webpack -p",
+    "compile-imports": "vulcanize src/html-imports.html --inline-script | crisper --html vendor/html-imports.vulcanized.html --js vendor/html-imports.vulcanized.js"
   },
   "author": "Arijus Šukys <argshook@gmail.com> (http://arijus.net)",
   "repository": {
