@@ -12,6 +12,8 @@ it should hopefully work live here: [http://arijus.net/polymer-experiments](http
 1. `npm start` - for dev [localhost:8080](http://localhost:8080)
 1. `npm run build` - for prod, creates `bundle.min.js`
 
+> NOTE: please run `npm run build` at least once before running `npm start`!
+
 ## Examples
 
 ### Vanilla
