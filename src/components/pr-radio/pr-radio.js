@@ -4,15 +4,12 @@ export default {
     checked: {
       type: Boolean,
       value: false
+    },
+    value: {
+      type: String,
+      value: '',
+      notify: true
     }
-  },
-
-  listeners: {
-    tap: '_onTap'
-  },
-
-  _onTap() {
-    this.checked = !this.checked;
   }
 };
 

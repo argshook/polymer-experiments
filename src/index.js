@@ -6,6 +6,7 @@ import prDropdown from './components/pr-dropdown/pr-dropdown.js';
 import prDropdownRow from './components/pr-dropdown/pr-dropdown-row/pr-dropdown-row.js';
 import prSlider from './components/pr-slider/pr-slider.js';
 import prRadio from './components/pr-radio/pr-radio.js';
+import prRadioGroup from './components/pr-radio-group/pr-radio-group.js';
 
 const COMPONENTS = [
   helloWorld,
@@ -13,7 +14,8 @@ const COMPONENTS = [
   prDropdown,
   prDropdownRow,
   prSlider,
-  prRadio
+  prRadio,
+  prRadioGroup
 ];
 
 HTMLImports.whenReady(() => {
