@@ -3,7 +3,14 @@
 
   angular
     .module('app', ['argshook.ngOn'])
-    .component('angularComponent', {
+
+    .component('angularComponent', angularComponent())
+    .component('dropdownComponent', dropdownComponent())
+    .component('sliderComponent', sliderComponent())
+    .component('radioGroup', radioGroup());
+
+  function angularComponent() {
+    return {
       templateUrl: 'views/clock.html',
       controller: function() {
         this.format = '24h';
@@ -21,9 +28,11 @@
           console.dir(e.type, e.details);
         }
       }
-    })
+    };
+  }
 
-    .component('dropdownComponent', {
+  function dropdownComponent() {
+    return {
       templateUrl: 'views/dropdown.html',
       controller: function() {
         this.selectedValue = 'nothing yet';
@@ -42,9 +51,11 @@
           { value: 3, label: 'third' }
         ];
       }
-    })
+    };
+  }
 
-    .component('sliderComponent', {
+  function sliderComponent() {
+    return {
       templateUrl: 'views/slider.html',
       controller: function() {
         this.value = 0;
@@ -53,8 +64,11 @@
           this.value = detail.value;
         };
       }
-    })
-    .component('radioGroup', {
+    };
+  }
+
+  function radioGroup() {
+    return {
       templateUrl: 'views/radio-group.html',
       controller: function() {
         this.selected = 'second';
@@ -70,6 +84,8 @@
           this.selected = event.detail.value;
         };
       }
-    });
+    };
+  }
+
 })(window.angular);
 
