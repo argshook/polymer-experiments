@@ -3,11 +3,40 @@
 
   angular
     .module('app', ['argshook.ngOn'])
-
+    .directive('ngAttr', ngAttr)
     .component('angularComponent', angularComponent())
     .component('dropdownComponent', dropdownComponent())
     .component('sliderComponent', sliderComponent())
     .component('radioGroup', radioGroup());
+
+  function ngAttr($parse) {
+    return {
+      restrict: 'A',
+      compile: function(e, attrs) {
+        return function(scope, element) {
+          var el = element[0];
+
+          setAttributes();
+
+          scope.$watch(function() {
+            setAttributes();
+          });
+
+          function setAttributes() {
+            var attrsAndFns = $parse(attrs.ngAttr)(scope);
+
+            Object
+              .keys(attrsAndFns)
+              .forEach(attr => {
+                if (attrsAndFns[attr] !== el.getAttribute(attr)) {
+                  el.setAttribute(attr, attrsAndFns[attr]);
+                }
+              });
+          }
+        };
+      }
+    };
+  }
 
   function angularComponent() {
     return {
@@ -71,7 +100,7 @@
     return {
       templateUrl: 'views/radio-group.html',
       controller: function() {
-        this.selected = 'second';
+        this.selected = 'third';
 
         this.options = [
           { value: 'first', label: 'First option!' },
@@ -80,12 +109,10 @@
         ];
 
         this.selectedChanged = function(event) {
-          console.log(event.detail);
-          this.selected = event.detail.value;
+          this.selected = event.detail;
         };
       }
     };
   }
-
 })(window.angular);
 

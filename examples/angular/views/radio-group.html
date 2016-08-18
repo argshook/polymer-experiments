@@ -3,7 +3,7 @@
   <br>
 
   <pr-radio-group
-    selected="{{$ctrl.selected}}"
+    ng-attr="{ selected: $ctrl.selected }"
     ng-on="{ 'selected-changed': $ctrl.selectedChanged }">
 
     <pr-radio

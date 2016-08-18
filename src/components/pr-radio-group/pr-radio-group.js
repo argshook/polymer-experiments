@@ -4,8 +4,8 @@ export default {
     selected: {
       type: String,
       value: '',
-      notify: true,
-      observer: '_checkSelected'
+      observer: '_setSelected',
+      reflectToAttribute: true
     }
   },
 
@@ -15,48 +15,46 @@ export default {
 
   _onTap(event) {
     if (event.target.nodeName === 'PR-RADIO' && !event.target.checked) {
-      this.selected = event.target.value;
-
-      Polymer
-        .dom(this)
-        .querySelector('[checked]')
-        .removeAttribute('checked');
-
-      Polymer
-        .dom(event.target)
-        .setAttribute('checked', '');
+      this._setSelected(event.target.value);
     }
   },
 
-  _checkSelected(selected) {
-    const isInOptions = Polymer
+  _validateSelected(value) {
+    return Polymer
       .dom(this)
       .querySelectorAll('pr-radio[value]')
       .some(e => {
-        console.log(e, selected);
-        return e.value === selected;
+        return e.value === value;
       });
+  },
 
-    console.log('checking', isInOptions);
-    if(isInOptions) {
-      this._setChecked(selected);
+  _setSelected(value) {
+    if(!this._validateSelected(value)) {
+      return;
+    }
+
+    const parent = Polymer.dom(this);
+    const selectables = parent.querySelectorAll(`[value="${value}"]`);
+    const currentlySelected = parent.querySelectorAll('[checked]');
+
+    if(currentlySelected) {
+      currentlySelected.map(el => el.removeAttribute('checked'));
+    }
+
+    if(selectables) {
+      selectables.map(el => el.setAttribute('checked', ''));
+      this.selected = value;
+      this.fire('selected-changed', this.selected);
     }
   },
 
-  _setChecked(checked) {
-    const dom = Polymer.dom(this);
-    const node = dom.querySelector(`[value="${checked}"]`);
-    const removeNode = dom.querySelector('[checked]');
+  attached() {
+    const observer = new MutationObserver(mutations => this._setSelected(this.selected));
 
-    if(removeNode) {
-      removeNode.removeAttribute('checked');
-    }
-
-    if(node) {
-      node.setAttribute('checked', '');
-
-      this.fire('selected-changed', this.selected);
-    }
+    observer.observe(this, {
+      childList: true,
+      attributes: true
+    });
   }
 };
 
