@@ -1,0 +1,14 @@
+<div>
+  Change format from angular:
+  <br>
+
+  <input type="radio" ng-model="$ctrl.format" value="12h" /> 12H
+  <br>
+
+  <input type="radio" ng-model="$ctrl.format" value="24h" /> 24H
+
+  <pr-clock ng-on="$ctrl.events" format="{{$ctrl.format}}">
+    This is clock:
+  </pr-clock>
+</div>
+

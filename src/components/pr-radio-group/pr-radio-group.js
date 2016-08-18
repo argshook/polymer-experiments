@@ -4,7 +4,8 @@ export default {
     selected: {
       type: String,
       value: '',
-      notify: true
+      notify: true,
+      observer: '_checkSelected'
     }
   },
 
@@ -27,11 +28,35 @@ export default {
     }
   },
 
-  attached() {
-    Polymer
+  _checkSelected(selected) {
+    const isInOptions = Polymer
       .dom(this)
-      .querySelector(`[value=${this.selected}]`)
-      .setAttribute('checked', '');
+      .querySelectorAll('pr-radio[value]')
+      .some(e => {
+        console.log(e, selected);
+        return e.value === selected;
+      });
+
+    console.log('checking', isInOptions);
+    if(isInOptions) {
+      this._setChecked(selected);
+    }
+  },
+
+  _setChecked(checked) {
+    const dom = Polymer.dom(this);
+    const node = dom.querySelector(`[value="${checked}"]`);
+    const removeNode = dom.querySelector('[checked]');
+
+    if(removeNode) {
+      removeNode.removeAttribute('checked');
+    }
+
+    if(node) {
+      node.setAttribute('checked', '');
+
+      this.fire('selected-changed', this.selected);
+    }
   }
 };
 

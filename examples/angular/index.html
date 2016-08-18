@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stupid angular example</title>
+</head>
+<body>
+    <angular-component></angular-component>
+    <dropdown-component></dropdown-component>
+    <slider-component></slider-component>
+    <radio-group></radio-group>
+
+    <script src="../../vendor/webcomponents.min.js"></script>
+    <script>window.Polymer = { dom: 'shadow' };</script>
+    <script src="../../dist/html-imports.js"></script>
+    <script src="../../dist/bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="https://rawgit.com/argshook/ng-on/master/src/ng-on.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

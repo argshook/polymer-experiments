@@ -1,0 +1,9 @@
+<div>
+  <pr-dropdown label="Some items:" ng-on="$ctrl.dropdownEvents">
+    <pr-dropdown-row ng-repeat="item in $ctrl.items track by $index" value="{{item.value}}">
+      {{item.label}}
+    </pr-dropdown-row>
+  </pr-dropdown>
+  Selected: {{$ctrl.selectedValue}}
+</div>
+

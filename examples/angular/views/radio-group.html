@@ -1,0 +1,16 @@
+<div>
+  Selected value in angular: {{$ctrl.selected}}
+  <br>
+
+  <pr-radio-group
+    selected="{{$ctrl.selected}}"
+    ng-on="{ 'selected-changed': $ctrl.selectedChanged }">
+
+    <pr-radio
+      ng-repeat="option in $ctrl.options"
+      value="{{option.value}}">{{option.label}}
+    </pr-radio>
+
+  </pr-radio-group>
+</div>
+
