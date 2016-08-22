@@ -11,13 +11,11 @@ export default {
     },
     min: {
       type: Number,
-      value: 0,
-      readOnly: true
+      value: 0
     },
     max: {
       type: Number,
-      value: 100,
-      readOnly: true
+      value: 100
     },
     tracking: {
       type: Boolean,
@@ -65,8 +63,12 @@ export default {
     return Math.round(pos * this.max / this.$.bar.offsetWidth);
   },
 
-  ready() {
-    this.customStyle['--pin-position-x'] = '0';
+  convertValueToPosition(value) {
+    return Math.round(value * this.$.bar.offsetWidth / this.max);
+  },
+
+  attached() {
+    this.position = this.convertValueToPosition(this.value);
   }
 };
 
