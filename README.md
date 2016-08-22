@@ -19,13 +19,13 @@ it should hopefully work live here: [http://arijus.net/polymer-experiments](http
 
 ### Vanilla
 
-[index.html](index.html)
+[examples/angular/index.html](source)
 
 no framework, just components
 
 ### React
 
-[react.html](react.html)
+[examples/react/index.html](source)
 
 #### TODO
 
