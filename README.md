@@ -29,9 +29,9 @@ no framework, just components
 
 #### TODO
 
-* [ ] integration with multiple nested components;
-* [ ] passing values via props to components;
-* [ ] handling component events;
+* [x] integration with multiple nested components;
+* [x] passing values via props to components;
+* [x] handling component events;
 * [ ] styling (with `className`, `style`)
 * [ ] try [react-integration](https://github.com/webcomponents/react-integration)
 
@@ -41,7 +41,7 @@ no framework, just components
 
 #### TODO
 
-* [ ] integration with multiple nested components;
+* [x] integration with multiple nested components;
 * [x] handling component events;
 * [ ] styling (with `ng-style`, `ng-class`)
 
