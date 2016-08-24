@@ -1,4 +1,5 @@
 /* global Polymer */
+
 export default {
   is: 'pr-slider',
 
@@ -7,7 +8,8 @@ export default {
       type: Number,
       value: 0,
       notify: true,
-      reflectToAttribute: true
+      reflectToAttribute: true,
+      observer: 'valueChanged'
     },
     min: {
       type: Number,
@@ -45,6 +47,10 @@ export default {
 
     this.value = this.convertPositionToValue(newPosition);
     this.position = newPosition;
+  },
+
+  valueChanged(value) {
+    this.position = this.convertValueToPosition(value);
   },
 
   getRelativePosition(pos) {
