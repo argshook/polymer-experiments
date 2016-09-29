@@ -19,7 +19,7 @@ it should hopefully work live here: [http://arijus.net/polymer-experiments](http
 
 ### Vanilla
 
-[source](examples/angular/index.html)
+[source](index.html)
 
 no framework, just components
 
